@@ -12,8 +12,8 @@ export class PipelineStack extends cdk.Stack {
     // ------------------------------
     // 1. Create ECR Repository
     // ------------------------------
-    const repo = new ecr.Repository(this, "FlaskRepo", {
-      repositoryName: "flask-docker-app",
+    const repo = new ecr.Repository(this, "FlaskRepoo", {
+      repositoryName: "flask-docker-appp",
     });
 
     // ------------------------------
@@ -37,7 +37,7 @@ export class PipelineStack extends cdk.Stack {
     // ------------------------------
     // 3. CodeBuild project to build & push Docker image
     // ------------------------------
-    const buildProject = new codebuild.PipelineProject(this, "DockerBuildProject", {
+    const buildProject = new codebuild.PipelineProject(this, "DockerBuildProjectt", {
       environment: {
         buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
         privileged: true, // Docker required
@@ -78,8 +78,8 @@ export class PipelineStack extends cdk.Stack {
     // ------------------------------
     // 4. Pipeline
     // ------------------------------
-    const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipeline", {
-      pipelineName: "FlaskDockerPipeline",
+    const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipelinee", {
+      pipelineName: "FlaskDockerPipelinee",
     });
 
     // Add stages

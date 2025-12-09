@@ -599,7 +599,7 @@
         "Configuration": {
          "ConnectionArn": "arn:aws:codeconnections:us-east-1:456582263462:connection/67d1cdd6-b773-40a5-ba33-9ea46b7f989d",
          "FullRepositoryId": "alexriley7/codepipelinetest_ecr",
-         "BranchName": "main",
+         "BranchName": "master",
          "DetectChanges": true
         },
         "Name": "GitHub_Source",
