@@ -28,7 +28,7 @@ export class PipelineStack extends cdk.Stack {
       actionName: "GitHub_Source",
       owner: "alexriley7",
       repo: "codepipelinetest_ecr",
-      branch: "main",
+      branch: "master",
       output: sourceOutput,
       connectionArn,
       triggerOnPush: true,
