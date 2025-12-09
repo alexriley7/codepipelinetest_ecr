@@ -5,6 +5,8 @@ import * as codebuild from "aws-cdk-lib/aws-codebuild";
 import * as ecr from "aws-cdk-lib/aws-ecr";
 import { Construct } from "constructs";
 
+import * as iam from "aws-cdk-lib/aws-iam";
+
 export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -22,7 +24,7 @@ export class PipelineStack extends cdk.Stack {
     const sourceOutput = new codepipeline.Artifact();
 
     const connectionArn =
-      "arn:aws:codeconnections:us-east-1:456582263462:connection/67d1cdd6-b773-40a5-ba33-9ea46b7f989d";
+      "arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01";
 
     const sourceAction = new codepipeline_actions.CodeStarConnectionsSourceAction({
       actionName: "GitHub_Source",
@@ -82,10 +84,12 @@ export class PipelineStack extends cdk.Stack {
       pipelineName: "FlaskDockerPipelinee1",
     });
 
-    pipeline.role?.addToPolicy(new iam.PolicyStatement({
-        actions: ["codeconnections:UseConnection"],
-        resources: ["arn:aws:codeconnections:us-east-1:456582263462:connection/67d1cdd6-b773-40a5-ba33-9ea46b7f989d"]
-      }));
+    sourceAction.connectionsGrantPrincipal.addToPolicy(
+        new iam.PolicyStatement({
+          actions: ["codeconnections:UseConnection"],
+          resources: ["arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01"]
+        })
+      );
       
 
     // Add stages
