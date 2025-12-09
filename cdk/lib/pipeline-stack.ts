@@ -82,6 +82,12 @@ export class PipelineStack extends cdk.Stack {
       pipelineName: "FlaskDockerPipelinee1",
     });
 
+    pipeline.role?.addToPolicy(new iam.PolicyStatement({
+        actions: ["codeconnections:UseConnection"],
+        resources: ["arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01"]
+      }));
+      
+
     // Add stages
     pipeline.addStage({
       stageName: "Source",
