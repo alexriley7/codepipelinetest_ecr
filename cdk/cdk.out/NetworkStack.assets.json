@@ -1,16 +1,16 @@
 {
   "version": "48.0.0",
   "files": {
-    "392fb8ddd8855e42b633f955c890517c60ea4d54975635f7202f5213fb616161": {
-      "displayName": "SimplePipelineStack Template",
+    "e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69": {
+      "displayName": "NetworkStack Template",
       "source": {
-        "path": "SimplePipelineStack.template.json",
+        "path": "NetworkStack.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "current_account-current_region-960069b9": {
+        "current_account-current_region-e42ab5e2": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "392fb8ddd8855e42b633f955c890517c60ea4d54975635f7202f5213fb616161.json",
+          "objectKey": "e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }

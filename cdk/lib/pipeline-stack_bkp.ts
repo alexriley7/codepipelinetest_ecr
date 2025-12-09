@@ -93,20 +93,6 @@ export class PipelineStack extends cdk.Stack {
       actions: [sourceAction],
     });
 
-
-    // Stage 2: Deploy VPC (NetworkStack)
-    pipeline.addStage({
-        stageName: "Create_VPC",
-        actions: [
-          new codepipeline_actions.CloudFormationCreateUpdateStackAction({
-            actionName: "DeployNetworkStack",
-            stackName: "NetworkStackFromPipeline",
-            templatePath: sourceOutput.atPath("network-stack.template.json"),
-            adminPermissions: true,
-          }),
-        ],
-      });
-
     pipeline.addStage({
       stageName: "BuildAndPushDocker",
       actions: [

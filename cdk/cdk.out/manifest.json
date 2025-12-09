@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/296fd23bb29aa47a8fb7ce478797861f538099e10373fba2f3a3f359600fb11b.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/392fb8ddd8855e42b633f955c890517c60ea4d54975635f7202f5213fb616161.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,10 +34,10 @@
         "SimplePipelineStack.assets"
       ],
       "metadata": {
-        "/SimplePipelineStack/FlaskRepoo1/Resource": [
+        "/SimplePipelineStack/FlaskRepoo2/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskRepoo1AFC6F3B8"
+            "data": "FlaskRepoo27E44A280"
           }
         ],
         "/SimplePipelineStack/DockerBuildProjectt1/Role/Resource": [
@@ -68,7 +68,7 @@
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/aws-codepipeline/lib/pipeline.js:1:11800)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:681)",
               "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:83:22)",
-              "Object.<anonymous> (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/bin/cdk.ts:11:1)",
+              "Object.<anonymous> (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/bin/cdk.ts:13:1)",
               "Module._compile (node:internal/modules/cjs/loader:1529:14)",
               "Module.m._compile (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/ts-node/src/index.ts:1618:23)",
               "Module._extensions..js (node:internal/modules/cjs/loader:1613:10)",
@@ -143,6 +143,30 @@
             "data": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleDefaultPolicyC0AC9035"
           }
         ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackCodePipelineActionRole113390F1"
+          }
+        ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackCodePipelineActionRoleDefaultPolicy9FCB8460"
+          }
+        ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackRole2EB9FA80"
+          }
+        ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackRoleDefaultPolicyF7339B96"
+          }
+        ],
         "/SimplePipelineStack/FlaskDockerPipelinee1/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -181,6 +205,108 @@
         ]
       },
       "displayName": "SimplePipelineStack"
+    },
+    "NetworkStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "NetworkStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "NetworkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "NetworkStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "NetworkStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "NetworkStack.assets"
+      ],
+      "metadata": {
+        "/NetworkStack/MyPipelineVpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpc32F912ED"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcPublicSubnetSubnet1Subnet677FB136"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcPublicSubnetSubnet1RouteTable2557B528"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcPublicSubnetSubnet1RouteTableAssociationD7312008"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcPublicSubnetSubnet1DefaultRouteB8F75D46"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcIGWBCE05C3D"
+          }
+        ],
+        "/NetworkStack/MyPipelineVpc/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyPipelineVpcVPCGW022305CB"
+          }
+        ],
+        "/NetworkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/NetworkStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/NetworkStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/NetworkStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "NetworkStack"
     },
     "Tree": {
       "type": "cdk:tree",
