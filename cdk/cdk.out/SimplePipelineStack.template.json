@@ -160,7 +160,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+          "FlaskDockerPipelinee1ArtifactsBucketF2853016",
           "Arn"
          ]
         },
@@ -170,7 +170,7 @@
           [
            {
             "Fn::GetAtt": [
-             "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+             "FlaskDockerPipelinee1ArtifactsBucketF2853016",
              "Arn"
             ]
            },
@@ -188,7 +188,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+         "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
          "Arn"
         ]
        }
@@ -203,7 +203,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+         "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
          "Arn"
         ]
        }
@@ -233,7 +233,7 @@
     },
     "EncryptionKey": {
      "Fn::GetAtt": [
-      "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+      "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
       "Arn"
      ]
     },
@@ -313,7 +313,7 @@
     "aws:cdk:path": "SimplePipelineStack/DockerBuildProjectt/Resource"
    }
   },
-  "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C": {
+  "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF": {
    "Type": "AWS::KMS::Key",
    "Properties": {
     "KeyPolicy": {
@@ -348,16 +348,16 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/ArtifactsBucketEncryptionKey/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucketEncryptionKey/Resource"
    }
   },
-  "FlaskDockerPipelineeArtifactsBucketEncryptionKeyAlias9F590D0C": {
+  "FlaskDockerPipelinee1ArtifactsBucketEncryptionKeyAliasB2FE4339": {
    "Type": "AWS::KMS::Alias",
    "Properties": {
-    "AliasName": "alias/codepipeline-simplepipelinestackflaskdockerpipelinee498a6998",
+    "AliasName": "alias/codepipeline-simplepipelinestackflaskdockerpipelinee1c533c5f9",
     "TargetKeyId": {
      "Fn::GetAtt": [
-      "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+      "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
       "Arn"
      ]
     }
@@ -365,10 +365,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/ArtifactsBucketEncryptionKeyAlias/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucketEncryptionKeyAlias/Resource"
    }
   },
-  "FlaskDockerPipelineeArtifactsBucket5CB095B6": {
+  "FlaskDockerPipelinee1ArtifactsBucketF2853016": {
    "Type": "AWS::S3::Bucket",
    "Properties": {
     "BucketEncryption": {
@@ -377,7 +377,7 @@
        "ServerSideEncryptionByDefault": {
         "KMSMasterKeyID": {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+          "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
           "Arn"
          ]
         },
@@ -396,14 +396,14 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/ArtifactsBucket/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucket/Resource"
    }
   },
-  "FlaskDockerPipelineeArtifactsBucketPolicy7E13EC8F": {
+  "FlaskDockerPipelinee1ArtifactsBucketPolicy3C9AE842": {
    "Type": "AWS::S3::BucketPolicy",
    "Properties": {
     "Bucket": {
-     "Ref": "FlaskDockerPipelineeArtifactsBucket5CB095B6"
+     "Ref": "FlaskDockerPipelinee1ArtifactsBucketF2853016"
     },
     "PolicyDocument": {
      "Statement": [
@@ -421,7 +421,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+          "FlaskDockerPipelinee1ArtifactsBucketF2853016",
           "Arn"
          ]
         },
@@ -431,7 +431,7 @@
           [
            {
             "Fn::GetAtt": [
-             "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+             "FlaskDockerPipelinee1ArtifactsBucketF2853016",
              "Arn"
             ]
            },
@@ -446,10 +446,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/ArtifactsBucket/Policy/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucket/Policy/Resource"
    }
   },
-  "FlaskDockerPipelineeRole4A93EB81": {
+  "FlaskDockerPipelinee1Role2C73E70F": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -466,10 +466,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/Role/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/Role/Resource"
    }
   },
-  "FlaskDockerPipelineeRoleDefaultPolicyC7E29A14": {
+  "FlaskDockerPipelinee1RoleDefaultPolicy3AAA1A46": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -491,7 +491,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+          "FlaskDockerPipelinee1ArtifactsBucketF2853016",
           "Arn"
          ]
         },
@@ -501,7 +501,7 @@
           [
            {
             "Fn::GetAtt": [
-             "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+             "FlaskDockerPipelinee1ArtifactsBucketF2853016",
              "Arn"
             ]
            },
@@ -522,7 +522,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+         "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
          "Arn"
         ]
        }
@@ -532,7 +532,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRole67170CE3",
+         "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleF43A04FF",
          "Arn"
         ]
        }
@@ -542,7 +542,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRole706AA0D1",
+         "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRole4005A06B",
          "Arn"
         ]
        }
@@ -550,39 +550,39 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "FlaskDockerPipelineeRoleDefaultPolicyC7E29A14",
+    "PolicyName": "FlaskDockerPipelinee1RoleDefaultPolicy3AAA1A46",
     "Roles": [
      {
-      "Ref": "FlaskDockerPipelineeRole4A93EB81"
+      "Ref": "FlaskDockerPipelinee1Role2C73E70F"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/Role/DefaultPolicy/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/Role/DefaultPolicy/Resource"
    }
   },
-  "FlaskDockerPipelinee2AEEEEC3": {
+  "FlaskDockerPipelinee1EDEE622A": {
    "Type": "AWS::CodePipeline::Pipeline",
    "Properties": {
     "ArtifactStore": {
      "EncryptionKey": {
       "Id": {
        "Fn::GetAtt": [
-        "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+        "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
         "Arn"
        ]
       },
       "Type": "KMS"
      },
      "Location": {
-      "Ref": "FlaskDockerPipelineeArtifactsBucket5CB095B6"
+      "Ref": "FlaskDockerPipelinee1ArtifactsBucketF2853016"
      },
      "Type": "S3"
     },
-    "Name": "FlaskDockerPipelinee",
+    "Name": "FlaskDockerPipelinee1",
     "RoleArn": {
      "Fn::GetAtt": [
-      "FlaskDockerPipelineeRole4A93EB81",
+      "FlaskDockerPipelinee1Role2C73E70F",
       "Arn"
      ]
     },
@@ -610,7 +610,7 @@
         ],
         "RoleArn": {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRole67170CE3",
+          "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleF43A04FF",
           "Arn"
          ]
         },
@@ -641,7 +641,7 @@
         "Name": "DockerBuild",
         "RoleArn": {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRole706AA0D1",
+          "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRole4005A06B",
           "Arn"
          ]
         },
@@ -653,14 +653,14 @@
     ]
    },
    "DependsOn": [
-    "FlaskDockerPipelineeRoleDefaultPolicyC7E29A14",
-    "FlaskDockerPipelineeRole4A93EB81"
+    "FlaskDockerPipelinee1RoleDefaultPolicy3AAA1A46",
+    "FlaskDockerPipelinee1Role2C73E70F"
    ],
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/Resource"
    }
   },
-  "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRole67170CE3": {
+  "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleF43A04FF": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -671,7 +671,7 @@
        "Principal": {
         "AWS": {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeRole4A93EB81",
+          "FlaskDockerPipelinee1Role2C73E70F",
           "Arn"
          ]
         }
@@ -682,10 +682,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/Source/GitHub_Source/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/Source/GitHub_Source/CodePipelineActionRole/Resource"
    }
   },
-  "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRoleDefaultPolicy3C67922F": {
+  "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleDefaultPolicyC0AC9035": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -712,7 +712,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+          "FlaskDockerPipelinee1ArtifactsBucketF2853016",
           "Arn"
          ]
         },
@@ -722,7 +722,7 @@
           [
            {
             "Fn::GetAtt": [
-             "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+             "FlaskDockerPipelinee1ArtifactsBucketF2853016",
              "Arn"
             ]
            },
@@ -743,7 +743,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskDockerPipelineeArtifactsBucketEncryptionKey9A99DD9C",
+         "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF",
          "Arn"
         ]
        }
@@ -760,7 +760,7 @@
          [
           {
            "Fn::GetAtt": [
-            "FlaskDockerPipelineeArtifactsBucket5CB095B6",
+            "FlaskDockerPipelinee1ArtifactsBucketF2853016",
             "Arn"
            ]
           },
@@ -772,18 +772,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRoleDefaultPolicy3C67922F",
+    "PolicyName": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleDefaultPolicyC0AC9035",
     "Roles": [
      {
-      "Ref": "FlaskDockerPipelineeSourceGitHubSourceCodePipelineActionRole67170CE3"
+      "Ref": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleF43A04FF"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/Source/GitHub_Source/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/Source/GitHub_Source/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
-  "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRole706AA0D1": {
+  "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRole4005A06B": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -794,7 +794,7 @@
        "Principal": {
         "AWS": {
          "Fn::GetAtt": [
-          "FlaskDockerPipelineeRole4A93EB81",
+          "FlaskDockerPipelinee1Role2C73E70F",
           "Arn"
          ]
         }
@@ -805,10 +805,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/Resource"
    }
   },
-  "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicyB1B6BDBC": {
+  "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicy024F674C": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -830,15 +830,15 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicyB1B6BDBC",
+    "PolicyName": "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicy024F674C",
     "Roles": [
      {
-      "Ref": "FlaskDockerPipelineeBuildAndPushDockerDockerBuildCodePipelineActionRole706AA0D1"
+      "Ref": "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRole4005A06B"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskDockerPipelinee1/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
   "CDKMetadata": {
