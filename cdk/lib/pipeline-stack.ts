@@ -1,0 +1,102 @@
+import * as cdk from "aws-cdk-lib";
+import * as codepipeline from "aws-cdk-lib/aws-codepipeline";
+import * as codepipeline_actions from "aws-cdk-lib/aws-codepipeline-actions";
+import * as codebuild from "aws-cdk-lib/aws-codebuild";
+import * as ecr from "aws-cdk-lib/aws-ecr";
+import { Construct } from "constructs";
+
+export class PipelineStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    // ------------------------------
+    // 1. Create ECR Repository
+    // ------------------------------
+    const repo = new ecr.Repository(this, "FlaskRepo", {
+      repositoryName: "flask-docker-app",
+    });
+
+    // ------------------------------
+    // 2. GitHub Source Action
+    // ------------------------------
+    const sourceOutput = new codepipeline.Artifact();
+
+    const connectionArn =
+      "arn:aws:codestar-connections:REGION:ACCOUNT_ID:connection/XXXX";
+
+    const sourceAction = new codepipeline_actions.CodeStarConnectionsSourceAction({
+      actionName: "GitHub_Source",
+      owner: "YOUR_GITHUB_USERNAME",
+      repo: "YOUR_REPO_NAME",
+      branch: "main",
+      output: sourceOutput,
+      connectionArn,
+      triggerOnPush: true,
+    });
+
+    // ------------------------------
+    // 3. CodeBuild project to build & push Docker image
+    // ------------------------------
+    const buildProject = new codebuild.PipelineProject(this, "DockerBuildProject", {
+      environment: {
+        buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
+        privileged: true, // Docker required
+      },
+      environmentVariables: {
+        ECR_REPO_URI: { value: repo.repositoryUri },
+      },
+      buildSpec: codebuild.BuildSpec.fromObject({
+        version: "0.2",
+        phases: {
+          pre_build: {
+            commands: [
+              "echo Logging in to Amazon ECR...",
+              "aws --version",
+              "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPO_URI",
+            ],
+          },
+          build: {
+            commands: [
+              "echo Building Docker image...",
+              "docker build -t flask-app .",
+              "docker tag flask-app:latest $ECR_REPO_URI:latest",
+            ],
+          },
+          post_build: {
+            commands: [
+              "echo Pushing Docker image to ECR...",
+              "docker push $ECR_REPO_URI:latest",
+            ],
+          },
+        },
+      }),
+    });
+
+    // Allow CodeBuild to push to ECR
+    repo.grantPullPush(buildProject.role!);
+
+    // ------------------------------
+    // 4. Pipeline
+    // ------------------------------
+    const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipeline", {
+      pipelineName: "FlaskDockerPipeline",
+    });
+
+    // Add stages
+    pipeline.addStage({
+      stageName: "Source",
+      actions: [sourceAction],
+    });
+
+    pipeline.addStage({
+      stageName: "BuildAndPushDocker",
+      actions: [
+        new codepipeline_actions.CodeBuildAction({
+          actionName: "DockerBuild",
+          project: buildProject,
+          input: sourceOutput,
+        }),
+      ],
+    });
+  }
+}
