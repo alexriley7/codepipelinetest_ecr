@@ -22,12 +22,12 @@ export class PipelineStack extends cdk.Stack {
     const sourceOutput = new codepipeline.Artifact();
 
     const connectionArn =
-      "arn:aws:codestar-connections:REGION:ACCOUNT_ID:connection/XXXX";
+      "arn:aws:codeconnections:us-east-1:456582263462:connection/67d1cdd6-b773-40a5-ba33-9ea46b7f989d";
 
     const sourceAction = new codepipeline_actions.CodeStarConnectionsSourceAction({
       actionName: "GitHub_Source",
-      owner: "YOUR_GITHUB_USERNAME",
-      repo: "YOUR_REPO_NAME",
+      owner: "alexriley7",
+      repo: "codepipelinetest_ecr",
       branch: "main",
       output: sourceOutput,
       connectionArn,
