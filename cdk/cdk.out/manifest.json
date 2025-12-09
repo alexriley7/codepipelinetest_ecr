@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0fd398d109807899fb1f8837f5ecef1e17662b6fcb04c2e7eb88851ecdadb8f3.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d0c1f67132f254053214fc5f016eb71f213cb406abf6a8c4d20bbeae14ddc213.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,28 +34,28 @@
         "SimplePipelineStack.assets"
       ],
       "metadata": {
-        "/SimplePipelineStack/FlaskRepoo/Resource": [
+        "/SimplePipelineStack/FlaskRepoo1/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskRepoo7EBFB154"
+            "data": "FlaskRepoo1AFC6F3B8"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt/Role/Resource": [
+        "/SimplePipelineStack/DockerBuildProjectt1/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjecttRoleF86FD931"
+            "data": "DockerBuildProjectt1Role4FB46632"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt/Role/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/DockerBuildProjectt1/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjecttRoleDefaultPolicy6BA99775"
+            "data": "DockerBuildProjectt1RoleDefaultPolicyA295084F"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt/Resource": [
+        "/SimplePipelineStack/DockerBuildProjectt1/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjectt21A8EA8B"
+            "data": "DockerBuildProjectt19827A3BA"
           }
         ],
         "/SimplePipelineStack/FlaskDockerPipelinee1": [
