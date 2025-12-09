@@ -6,7 +6,7 @@ export class NetworkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new ec2.Vpc(this, "MyPipelineVpc", {
+    new ec2.Vpc(this, "MyPipelineVpc2", {
       maxAzs: 1,
       subnetConfiguration: [
         {
