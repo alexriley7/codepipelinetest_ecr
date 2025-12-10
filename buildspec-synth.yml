@@ -4,6 +4,7 @@ phases:
   install:
     commands:
       - echo "Installing CDK dependencies..."
+      - ls -ltra
       - cd cdk
       - npm ci
 
