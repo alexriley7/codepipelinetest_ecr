@@ -14,8 +14,8 @@ export class PipelineStack extends cdk.Stack {
     // ------------------------------
     // 1. Create ECR Repository
     // ------------------------------
-    const repo = new ecr.Repository(this, "FlaskRepoo2", {
-      repositoryName: "flask-docker-appp2",
+    const repo = new ecr.Repository(this, "FlaskRepoo3", {
+      repositoryName: "flask-docker-appp3",
     });
 
     // ------------------------------
