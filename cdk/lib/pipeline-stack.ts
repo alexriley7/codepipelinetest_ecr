@@ -53,7 +53,8 @@ export class PipelineStack extends cdk.Stack {
           build: {
             commands: [
               "echo Running CDK build...",
-              "ls -ltra",
+              "echo heyy..",
+              "ls -la",
               "cd cdk",
               "npm run build",
               "echo Synthesizing CDK...",
