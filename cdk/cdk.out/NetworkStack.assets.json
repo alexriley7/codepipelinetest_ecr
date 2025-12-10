@@ -1,16 +1,16 @@
 {
   "version": "48.0.0",
   "files": {
-    "e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69": {
+    "e6ac44295437a77a3a42ba9d4ede1e2e6d12900d0386c94efc0cd01e89d2a216": {
       "displayName": "NetworkStack Template",
       "source": {
         "path": "NetworkStack.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "current_account-current_region-e42ab5e2": {
+        "current_account-current_region-5b67752a": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69.json",
+          "objectKey": "e6ac44295437a77a3a42ba9d4ede1e2e6d12900d0386c94efc0cd01e89d2a216.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }

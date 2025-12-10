@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "MyPipelineVpc32F912ED": {
+  "MyPipelineVpc2975551DF": {
    "Type": "AWS::EC2::VPC",
    "Properties": {
     "CidrBlock": "10.0.0.0/16",
@@ -10,15 +10,15 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NetworkStack/MyPipelineVpc"
+      "Value": "NetworkStack/MyPipelineVpc2"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/Resource"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/Resource"
    }
   },
-  "MyPipelineVpcPublicSubnetSubnet1Subnet677FB136": {
+  "MyPipelineVpc2PublicSubnetSubnet1SubnetC369078C": {
    "Type": "AWS::EC2::Subnet",
    "Properties": {
     "AvailabilityZone": {
@@ -42,92 +42,92 @@
      },
      {
       "Key": "Name",
-      "Value": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1"
+      "Value": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1"
      }
     ],
     "VpcId": {
-     "Ref": "MyPipelineVpc32F912ED"
+     "Ref": "MyPipelineVpc2975551DF"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/Subnet"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/Subnet"
    }
   },
-  "MyPipelineVpcPublicSubnetSubnet1RouteTable2557B528": {
+  "MyPipelineVpc2PublicSubnetSubnet1RouteTableB36A49A3": {
    "Type": "AWS::EC2::RouteTable",
    "Properties": {
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1"
+      "Value": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1"
      }
     ],
     "VpcId": {
-     "Ref": "MyPipelineVpc32F912ED"
+     "Ref": "MyPipelineVpc2975551DF"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTable"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/RouteTable"
    }
   },
-  "MyPipelineVpcPublicSubnetSubnet1RouteTableAssociationD7312008": {
+  "MyPipelineVpc2PublicSubnetSubnet1RouteTableAssociationCFADDE0F": {
    "Type": "AWS::EC2::SubnetRouteTableAssociation",
    "Properties": {
     "RouteTableId": {
-     "Ref": "MyPipelineVpcPublicSubnetSubnet1RouteTable2557B528"
+     "Ref": "MyPipelineVpc2PublicSubnetSubnet1RouteTableB36A49A3"
     },
     "SubnetId": {
-     "Ref": "MyPipelineVpcPublicSubnetSubnet1Subnet677FB136"
+     "Ref": "MyPipelineVpc2PublicSubnetSubnet1SubnetC369078C"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTableAssociation"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/RouteTableAssociation"
    }
   },
-  "MyPipelineVpcPublicSubnetSubnet1DefaultRouteB8F75D46": {
+  "MyPipelineVpc2PublicSubnetSubnet1DefaultRouteAA9D3D1F": {
    "Type": "AWS::EC2::Route",
    "Properties": {
     "DestinationCidrBlock": "0.0.0.0/0",
     "GatewayId": {
-     "Ref": "MyPipelineVpcIGWBCE05C3D"
+     "Ref": "MyPipelineVpc2IGW38DDEB36"
     },
     "RouteTableId": {
-     "Ref": "MyPipelineVpcPublicSubnetSubnet1RouteTable2557B528"
+     "Ref": "MyPipelineVpc2PublicSubnetSubnet1RouteTableB36A49A3"
     }
    },
    "DependsOn": [
-    "MyPipelineVpcVPCGW022305CB"
+    "MyPipelineVpc2VPCGW97603C25"
    ],
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/DefaultRoute"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/DefaultRoute"
    }
   },
-  "MyPipelineVpcIGWBCE05C3D": {
+  "MyPipelineVpc2IGW38DDEB36": {
    "Type": "AWS::EC2::InternetGateway",
    "Properties": {
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NetworkStack/MyPipelineVpc"
+      "Value": "NetworkStack/MyPipelineVpc2"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/IGW"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/IGW"
    }
   },
-  "MyPipelineVpcVPCGW022305CB": {
+  "MyPipelineVpc2VPCGW97603C25": {
    "Type": "AWS::EC2::VPCGatewayAttachment",
    "Properties": {
     "InternetGatewayId": {
-     "Ref": "MyPipelineVpcIGWBCE05C3D"
+     "Ref": "MyPipelineVpc2IGW38DDEB36"
     },
     "VpcId": {
-     "Ref": "MyPipelineVpc32F912ED"
+     "Ref": "MyPipelineVpc2975551DF"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NetworkStack/MyPipelineVpc/VPCGW"
+    "aws:cdk:path": "NetworkStack/MyPipelineVpc2/VPCGW"
    }
   },
   "CDKMetadata": {

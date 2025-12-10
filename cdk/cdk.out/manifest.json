@@ -223,7 +223,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e4faa99964770efa9ca9c1813f4ffa7a4d5885bd1ec2b35c303f3c6e02e63f69.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e6ac44295437a77a3a42ba9d4ede1e2e6d12900d0386c94efc0cd01e89d2a216.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -239,46 +239,46 @@
         "NetworkStack.assets"
       ],
       "metadata": {
-        "/NetworkStack/MyPipelineVpc/Resource": [
+        "/NetworkStack/MyPipelineVpc2/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpc32F912ED"
+            "data": "MyPipelineVpc2975551DF"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/Subnet": [
+        "/NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcPublicSubnetSubnet1Subnet677FB136"
+            "data": "MyPipelineVpc2PublicSubnetSubnet1SubnetC369078C"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTable": [
+        "/NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcPublicSubnetSubnet1RouteTable2557B528"
+            "data": "MyPipelineVpc2PublicSubnetSubnet1RouteTableB36A49A3"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/RouteTableAssociation": [
+        "/NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcPublicSubnetSubnet1RouteTableAssociationD7312008"
+            "data": "MyPipelineVpc2PublicSubnetSubnet1RouteTableAssociationCFADDE0F"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/PublicSubnetSubnet1/DefaultRoute": [
+        "/NetworkStack/MyPipelineVpc2/PublicSubnetSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcPublicSubnetSubnet1DefaultRouteB8F75D46"
+            "data": "MyPipelineVpc2PublicSubnetSubnet1DefaultRouteAA9D3D1F"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/IGW": [
+        "/NetworkStack/MyPipelineVpc2/IGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcIGWBCE05C3D"
+            "data": "MyPipelineVpc2IGW38DDEB36"
           }
         ],
-        "/NetworkStack/MyPipelineVpc/VPCGW": [
+        "/NetworkStack/MyPipelineVpc2/VPCGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyPipelineVpcVPCGW022305CB"
+            "data": "MyPipelineVpc2VPCGW97603C25"
           }
         ],
         "/NetworkStack/CDKMetadata/Default": [
