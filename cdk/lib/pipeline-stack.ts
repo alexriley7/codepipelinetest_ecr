@@ -9,38 +9,33 @@ export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // ---------------------------------------------------------
-    // 1. ECR Repository
-    // ---------------------------------------------------------
-    const repo = new ecr.Repository(this, "FlaskRepoo3", {
-      repositoryName: "flask-docker-appp3",
+    // ------------------------------
+    // 1. Create ECR Repository
+    // ------------------------------
+    const repo = new ecr.Repository(this, "FlaskRepoFinal", {
+      repositoryName: "flask-docker-final",
     });
 
-    // ---------------------------------------------------------
-    // 2. Artifacts
-    // ---------------------------------------------------------
+    // ------------------------------
+    // 2. Source (GitHub)
+    // ------------------------------
     const sourceOutput = new codepipeline.Artifact();
     const synthOutput = new codepipeline.Artifact("SynthOutput");
-
-    // ---------------------------------------------------------
-    // 3. GitHub Source Action
-    // ---------------------------------------------------------
-    const connectionArn =
-      "arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01";
 
     const sourceAction = new codepipeline_actions.CodeStarConnectionsSourceAction({
       actionName: "GitHub_Source",
       owner: "alexriley7",
       repo: "codepipelinetest_ecr",
       branch: "master",
+      connectionArn:
+        "arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01",
       output: sourceOutput,
-      connectionArn,
       triggerOnPush: true,
     });
 
-    // ---------------------------------------------------------
-    // 4. CDK Synth Stage
-    // ---------------------------------------------------------
+    // ------------------------------
+    // 3. CodeBuild - CDK Synth Stage
+    // ------------------------------
     const synthProject = new codebuild.PipelineProject(this, "SynthProject", {
       environment: {
         buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
@@ -48,20 +43,34 @@ export class PipelineStack extends cdk.Stack {
       buildSpec: codebuild.BuildSpec.fromObject({
         version: "0.2",
         phases: {
-          install: { commands: ["npm install -g aws-cdk", "npm ci"] },
-          build: { commands: ["npm run build", "cdk synth --all"] },
+          install: {
+            commands: [
+              "echo Installing CDK dependencies...",
+              "cd cdk",
+              "npm ci",
+            ],
+          },
+          build: {
+            commands: [
+              "echo Running CDK build...",
+              "cd cdk",
+              "npm run build",
+              "echo Synthesizing CDK...",
+              "npx cdk synth NetworkStack --quiet > ../cdk.out/network-stack.template.json"
+            ],
+          },
         },
         artifacts: {
           "base-directory": "cdk.out",
-          files: ["*.template.json"],
+          files: ["network-stack.template.json"],
         },
       }),
     });
 
-    // ---------------------------------------------------------
-    // 5. Docker Build Stage
-    // ---------------------------------------------------------
-    const buildProject = new codebuild.PipelineProject(this, "DockerBuildProjectt1", {
+    // ------------------------------
+    // 4. CodeBuild - Docker Build & Push to ECR
+    // ------------------------------
+    const dockerProject = new codebuild.PipelineProject(this, "DockerBuild", {
       environment: {
         buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
         privileged: true,
@@ -74,46 +83,46 @@ export class PipelineStack extends cdk.Stack {
         phases: {
           pre_build: {
             commands: [
-              "echo Logging in to Amazon ECR...",
+              "echo Logging into ECR...",
               "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPO_URI",
             ],
           },
           build: {
             commands: [
               "echo Building Docker image...",
+              "cd cdk/..",
               "docker build -t flask-app .",
               "docker tag flask-app:latest $ECR_REPO_URI:latest",
             ],
           },
           post_build: {
-            commands: ["echo Pushing Docker image...", "docker push $ECR_REPO_URI:latest"],
+            commands: [
+              "echo Pushing Docker image...",
+              "docker push $ECR_REPO_URI:latest",
+            ],
           },
         },
       }),
     });
 
-    repo.grantPullPush(buildProject.role!);
+    repo.grantPullPush(dockerProject.role!);
 
-    // ---------------------------------------------------------
-    // 6. Pipeline
-    // ---------------------------------------------------------
-    const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipelinee1", {
-      pipelineName: "FlaskDockerPipelinee1",
+    // ------------------------------
+    // 5. Pipeline Definition
+    // ------------------------------
+    const pipeline = new codepipeline.Pipeline(this, "PipelineFinal", {
+      pipelineName: "FlaskDockerPipelineFinal",
     });
 
-    // ---------------------------------------------------------
-    // Stages
-    // ---------------------------------------------------------
-
-    // Stage 1: Source
+    // SOURCE
     pipeline.addStage({
       stageName: "Source",
       actions: [sourceAction],
     });
 
-    // Stage 2: Synth (CDK synth generates templates)
+    // SYNTH (creates VPC template)
     pipeline.addStage({
-      stageName: "SynthCDK",
+      stageName: "Synth",
       actions: [
         new codepipeline_actions.CodeBuildAction({
           actionName: "CDK_Synth",
@@ -124,7 +133,7 @@ export class PipelineStack extends cdk.Stack {
       ],
     });
 
-    // Stage 3: Deploy Network Stack
+    // DEPLOY VPC
     pipeline.addStage({
       stageName: "Create_VPC",
       actions: [
@@ -132,20 +141,18 @@ export class PipelineStack extends cdk.Stack {
           actionName: "DeployNetworkStack",
           stackName: "NetworkStackFromPipeline",
           adminPermissions: true,
-
-          // IMPORTANT: Now uses SynthOutput, not GitHub source
-          templatePath: synthOutput.atPath("NetworkStack.template.json"),
+          templatePath: synthOutput.atPath("network-stack.template.json"),
         }),
       ],
     });
 
-    // Stage 4: Docker Build & Push
+    // DOCKER BUILD & PUSH
     pipeline.addStage({
       stageName: "BuildAndPushDocker",
       actions: [
         new codepipeline_actions.CodeBuildAction({
           actionName: "DockerBuild",
-          project: buildProject,
+          project: dockerProject,
           input: sourceOutput,
         }),
       ],

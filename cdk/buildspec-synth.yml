@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing CDK dependencies..."
+      - cd cdk
+      - npm ci
+
+  build:
+    commands:
+      - echo "Running CDK Synth..."
+      - npm run build
+      - npx cdk synth --all > ../cdk.out/pipeline-synth-output.json
+
+artifacts:
+  base-directory: cdk.out
+  files:
+    - '**/*'
