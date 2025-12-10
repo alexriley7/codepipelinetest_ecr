@@ -238,7 +238,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"echo Installing CDK dependencies...\",\n        \"cd cdk\",\n        \"npm ci\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Running CDK build...\",\n        \"echo heyy..\",\n        \"ls -la\",\n        \"cd cdk\",\n        \"npm run build\",\n        \"echo Synthesizing CDK...\",\n        \"npx cdk synth NetworkStack --quiet > ../cdk.out/network-stack.template.json\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"base-directory\": \"cdk.out\",\n    \"files\": [\n      \"network-stack.template.json\"\n    ]\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"echo Installing CDK dependencies...\",\n        \"cd cdk\",\n        \"npm ci\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Running CDK build...\",\n        \"echo heyy..\",\n        \"ls -la\",\n        \"npm run build\",\n        \"echo Synthesizing CDK...\",\n        \"npx cdk synth NetworkStack --quiet > ../cdk.out/network-stack.template.json\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"base-directory\": \"cdk.out\",\n    \"files\": [\n      \"network-stack.template.json\"\n    ]\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
