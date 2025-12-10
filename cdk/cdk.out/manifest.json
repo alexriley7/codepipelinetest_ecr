@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e63227d57004fb0d2552d9c83402483e7aff50d16f096828aa71b916afc0ca7e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f1c369b2196712ed8dc4a128d927ae96d790a3e03ee3df8f28bee3958f741226.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,10 +34,10 @@
         "SimplePipelineStack.assets"
       ],
       "metadata": {
-        "/SimplePipelineStack/FlaskRepoo3/Resource": [
+        "/SimplePipelineStack/FlaskRepoFinal/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskRepoo3C19B4145"
+            "data": "FlaskRepoFinalA15AE1F8"
           }
         ],
         "/SimplePipelineStack/SynthProject/Role/Resource": [
@@ -58,25 +58,25 @@
             "data": "SynthProject50AA6AE7"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt1/Role/Resource": [
+        "/SimplePipelineStack/DockerBuild/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjectt1Role4FB46632"
+            "data": "DockerBuildRole2BAC6ED2"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt1/Role/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/DockerBuild/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjectt1RoleDefaultPolicyA295084F"
+            "data": "DockerBuildRoleDefaultPolicy0D649F98"
           }
         ],
-        "/SimplePipelineStack/DockerBuildProjectt1/Resource": [
+        "/SimplePipelineStack/DockerBuild/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DockerBuildProjectt19827A3BA"
+            "data": "DockerBuildCFACF599"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1": [
+        "/SimplePipelineStack/PipelineFinal": [
           {
             "type": "aws:cdk:warning",
             "data": "V1 pipeline type is implicitly selected when `pipelineType` is not set. If you want to use V2 type, set `PipelineType.V2`. [ack: @aws-cdk/aws-codepipeline:unspecifiedPipelineType]",
@@ -85,7 +85,7 @@
               "Annotations.addWarningV2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:984)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/aws-codepipeline/lib/pipeline.js:1:11800)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:681)",
-              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:100:22)",
+              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:113:22)",
               "Object.<anonymous> (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/bin/cdk.ts:13:1)",
               "Module._compile (node:internal/modules/cjs/loader:1529:14)",
               "Module.m._compile (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/ts-node/src/index.ts:1618:23)",
@@ -107,106 +107,106 @@
             ]
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucketEncryptionKey/Resource": [
+        "/SimplePipelineStack/PipelineFinal/ArtifactsBucketEncryptionKey/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1ArtifactsBucketEncryptionKey52C10CFF"
+            "data": "PipelineFinalArtifactsBucketEncryptionKey05C2C761"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucketEncryptionKeyAlias/Resource": [
+        "/SimplePipelineStack/PipelineFinal/ArtifactsBucketEncryptionKeyAlias/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1ArtifactsBucketEncryptionKeyAliasB2FE4339"
+            "data": "PipelineFinalArtifactsBucketEncryptionKeyAlias75870C4A"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucket/Resource": [
+        "/SimplePipelineStack/PipelineFinal/ArtifactsBucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1ArtifactsBucketF2853016"
+            "data": "PipelineFinalArtifactsBucketC9ABCC65"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/ArtifactsBucket/Policy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/ArtifactsBucket/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1ArtifactsBucketPolicy3C9AE842"
+            "data": "PipelineFinalArtifactsBucketPolicyB97D9BA9"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Role/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1Role2C73E70F"
+            "data": "PipelineFinalRole660B68BF"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Role/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1RoleDefaultPolicy3AAA1A46"
+            "data": "PipelineFinalRoleDefaultPolicyB8F36882"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1EDEE622A"
+            "data": "PipelineFinalF655A6CD"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Source/GitHub_Source/CodePipelineActionRole/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Source/GitHub_Source/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleF43A04FF"
+            "data": "PipelineFinalSourceGitHubSourceCodePipelineActionRole0EF2EFE5"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Source/GitHub_Source/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Source/GitHub_Source/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleDefaultPolicyC0AC9035"
+            "data": "PipelineFinalSourceGitHubSourceCodePipelineActionRoleDefaultPolicy67414F23"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/SynthCDK/CDK_Synth/CodePipelineActionRole/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Synth/CDK_Synth/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1SynthCDKCDKSynthCodePipelineActionRoleC9BEF50E"
+            "data": "PipelineFinalSynthCDKSynthCodePipelineActionRole48EF24BC"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/SynthCDK/CDK_Synth/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Synth/CDK_Synth/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1SynthCDKCDKSynthCodePipelineActionRoleDefaultPolicy7CE2F714"
+            "data": "PipelineFinalSynthCDKSynthCodePipelineActionRoleDefaultPolicy4B59C6F0"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/CodePipelineActionRole/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Create_VPC/DeployNetworkStack/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackCodePipelineActionRole113390F1"
+            "data": "PipelineFinalCreateVPCDeployNetworkStackCodePipelineActionRole7B3F77D9"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Create_VPC/DeployNetworkStack/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackCodePipelineActionRoleDefaultPolicy9FCB8460"
+            "data": "PipelineFinalCreateVPCDeployNetworkStackCodePipelineActionRoleDefaultPolicyCF021A01"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/Role/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Create_VPC/DeployNetworkStack/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackRole2EB9FA80"
+            "data": "PipelineFinalCreateVPCDeployNetworkStackRole2809C50B"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/Role/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/Create_VPC/DeployNetworkStack/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1CreateVPCDeployNetworkStackRoleDefaultPolicyF7339B96"
+            "data": "PipelineFinalCreateVPCDeployNetworkStackRoleDefaultPolicy02085702"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/Resource": [
+        "/SimplePipelineStack/PipelineFinal/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRole4005A06B"
+            "data": "PipelineFinalBuildAndPushDockerDockerBuildCodePipelineActionRoleB45F7823"
           }
         ],
-        "/SimplePipelineStack/FlaskDockerPipelinee1/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/SimplePipelineStack/PipelineFinal/BuildAndPushDocker/DockerBuild/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskDockerPipelinee1BuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicy024F674C"
+            "data": "PipelineFinalBuildAndPushDockerDockerBuildCodePipelineActionRoleDefaultPolicyB032857F"
           }
         ],
         "/SimplePipelineStack/CDKMetadata/Default": [
