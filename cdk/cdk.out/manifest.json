@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/50f51696223768fe651e7f8666f660b9b0f6738516b9a9609d261aab56a91f12.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/51f3d8d41b2f01c435afa2a794e4a2d7bbaf7d1711c97b7b604dd55c05c5078d.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -85,7 +85,7 @@
               "Annotations.addWarningV2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:984)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/aws-codepipeline/lib/pipeline.js:1:11800)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:681)",
-              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:114:22)",
+              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:116:22)",
               "Object.<anonymous> (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/bin/cdk.ts:13:1)",
               "Module._compile (node:internal/modules/cjs/loader:1529:14)",
               "Module.m._compile (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/ts-node/src/index.ts:1618:23)",
