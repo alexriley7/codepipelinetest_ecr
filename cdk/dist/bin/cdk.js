@@ -34,7 +34,10 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-const cdk = __importStar(require("aws-cdk-lib"));
+//import * as cdk from 'aws-cdk-lib';
 const pipeline_stack_1 = require("../lib/pipeline-stack");
+const network_stack_1 = require("../lib/network-stack");
+const cdk = __importStar(require("aws-cdk-lib"));
 const app = new cdk.App();
 new pipeline_stack_1.PipelineStack(app, 'SimplePipelineStack');
+new network_stack_1.NetworkStack(app, "NetworkStack");

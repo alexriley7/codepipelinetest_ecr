@@ -42,33 +42,56 @@ const ecr = __importStar(require("aws-cdk-lib/aws-ecr"));
 class PipelineStack extends cdk.Stack {
     constructor(scope, id, props) {
         super(scope, id, props);
-        // ------------------------------
-        // 1. Create ECR Repository
-        // ------------------------------
-        const repo = new ecr.Repository(this, "FlaskRepo", {
-            repositoryName: "flask-docker-app",
+        // ---------------------------------------------------------
+        // 1. ECR Repository
+        // ---------------------------------------------------------
+        const repo = new ecr.Repository(this, "FlaskRepoo3", {
+            repositoryName: "flask-docker-appp3",
         });
-        // ------------------------------
-        // 2. GitHub Source Action
-        // ------------------------------
+        // ---------------------------------------------------------
+        // 2. Artifacts
+        // ---------------------------------------------------------
         const sourceOutput = new codepipeline.Artifact();
-        const connectionArn = "arn:aws:codeconnections:us-east-1:456582263462:connection/67d1cdd6-b773-40a5-ba33-9ea46b7f989d";
+        const synthOutput = new codepipeline.Artifact("SynthOutput");
+        // ---------------------------------------------------------
+        // 3. GitHub Source Action
+        // ---------------------------------------------------------
+        const connectionArn = "arn:aws:codeconnections:us-east-1:456582263462:connection/bc825e8d-e9cb-4c4f-b1da-0d54dc99db01";
         const sourceAction = new codepipeline_actions.CodeStarConnectionsSourceAction({
             actionName: "GitHub_Source",
             owner: "alexriley7",
             repo: "codepipelinetest_ecr",
-            branch: "main",
+            branch: "master",
             output: sourceOutput,
             connectionArn,
             triggerOnPush: true,
         });
-        // ------------------------------
-        // 3. CodeBuild project to build & push Docker image
-        // ------------------------------
-        const buildProject = new codebuild.PipelineProject(this, "DockerBuildProject", {
+        // ---------------------------------------------------------
+        // 4. CDK Synth Stage
+        // ---------------------------------------------------------
+        const synthProject = new codebuild.PipelineProject(this, "SynthProject", {
             environment: {
                 buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
-                privileged: true, // Docker required
+            },
+            buildSpec: codebuild.BuildSpec.fromObject({
+                version: "0.2",
+                phases: {
+                    install: { commands: ["npm install -g aws-cdk", "npm ci"] },
+                    build: { commands: ["npm run build", "cdk synth --all"] },
+                },
+                artifacts: {
+                    "base-directory": "cdk.out",
+                    files: ["*.template.json"],
+                },
+            }),
+        });
+        // ---------------------------------------------------------
+        // 5. Docker Build Stage
+        // ---------------------------------------------------------
+        const buildProject = new codebuild.PipelineProject(this, "DockerBuildProjectt1", {
+            environment: {
+                buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
+                privileged: true,
             },
             environmentVariables: {
                 ECR_REPO_URI: { value: repo.repositoryUri },
@@ -79,7 +102,6 @@ class PipelineStack extends cdk.Stack {
                     pre_build: {
                         commands: [
                             "echo Logging in to Amazon ECR...",
-                            "aws --version",
                             "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPO_URI",
                         ],
                     },
@@ -91,27 +113,52 @@ class PipelineStack extends cdk.Stack {
                         ],
                     },
                     post_build: {
-                        commands: [
-                            "echo Pushing Docker image to ECR...",
-                            "docker push $ECR_REPO_URI:latest",
-                        ],
+                        commands: ["echo Pushing Docker image...", "docker push $ECR_REPO_URI:latest"],
                     },
                 },
             }),
         });
-        // Allow CodeBuild to push to ECR
         repo.grantPullPush(buildProject.role);
-        // ------------------------------
-        // 4. Pipeline
-        // ------------------------------
-        const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipeline", {
-            pipelineName: "FlaskDockerPipeline",
+        // ---------------------------------------------------------
+        // 6. Pipeline
+        // ---------------------------------------------------------
+        const pipeline = new codepipeline.Pipeline(this, "FlaskDockerPipelinee1", {
+            pipelineName: "FlaskDockerPipelinee1",
         });
-        // Add stages
+        // ---------------------------------------------------------
+        // Stages
+        // ---------------------------------------------------------
+        // Stage 1: Source
         pipeline.addStage({
             stageName: "Source",
             actions: [sourceAction],
         });
+        // Stage 2: Synth (CDK synth generates templates)
+        pipeline.addStage({
+            stageName: "SynthCDK",
+            actions: [
+                new codepipeline_actions.CodeBuildAction({
+                    actionName: "CDK_Synth",
+                    project: synthProject,
+                    input: sourceOutput,
+                    outputs: [synthOutput],
+                }),
+            ],
+        });
+        // Stage 3: Deploy Network Stack
+        pipeline.addStage({
+            stageName: "Create_VPC",
+            actions: [
+                new codepipeline_actions.CloudFormationCreateUpdateStackAction({
+                    actionName: "DeployNetworkStack",
+                    stackName: "NetworkStackFromPipeline",
+                    adminPermissions: true,
+                    // IMPORTANT: Now uses SynthOutput, not GitHub source
+                    templatePath: synthOutput.atPath("NetworkStack.template.json"),
+                }),
+            ],
+        });
+        // Stage 4: Docker Build & Push
         pipeline.addStage({
             stageName: "BuildAndPushDocker",
             actions: [
