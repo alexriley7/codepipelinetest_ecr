@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/392fb8ddd8855e42b633f955c890517c60ea4d54975635f7202f5213fb616161.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/233a1393653a42d59875f4a651c5ee2538baab8073f9e307f9c204b407037cbc.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,10 +34,10 @@
         "SimplePipelineStack.assets"
       ],
       "metadata": {
-        "/SimplePipelineStack/FlaskRepoo2/Resource": [
+        "/SimplePipelineStack/FlaskRepoo3/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FlaskRepoo27E44A280"
+            "data": "FlaskRepoo3C19B4145"
           }
         ],
         "/SimplePipelineStack/DockerBuildProjectt1/Role/Resource": [

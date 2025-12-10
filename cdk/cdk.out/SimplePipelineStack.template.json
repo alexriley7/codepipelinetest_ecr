@@ -1,14 +1,14 @@
 {
  "Resources": {
-  "FlaskRepoo27E44A280": {
+  "FlaskRepoo3C19B4145": {
    "Type": "AWS::ECR::Repository",
    "Properties": {
-    "RepositoryName": "flask-docker-appp2"
+    "RepositoryName": "flask-docker-appp3"
    },
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "SimplePipelineStack/FlaskRepoo2/Resource"
+    "aws:cdk:path": "SimplePipelineStack/FlaskRepoo3/Resource"
    }
   },
   "DockerBuildProjectt1Role4FB46632": {
@@ -140,7 +140,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "FlaskRepoo27E44A280",
+         "FlaskRepoo3C19B4145",
          "Arn"
         ]
        }
@@ -255,7 +255,7 @@
               ":",
               {
                "Fn::GetAtt": [
-                "FlaskRepoo27E44A280",
+                "FlaskRepoo3C19B4145",
                 "Arn"
                ]
               }
@@ -272,7 +272,7 @@
               ":",
               {
                "Fn::GetAtt": [
-                "FlaskRepoo27E44A280",
+                "FlaskRepoo3C19B4145",
                 "Arn"
                ]
               }
@@ -286,7 +286,7 @@
           },
           "/",
           {
-           "Ref": "FlaskRepoo27E44A280"
+           "Ref": "FlaskRepoo3C19B4145"
           }
          ]
         ]
