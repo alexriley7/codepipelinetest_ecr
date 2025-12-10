@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/233a1393653a42d59875f4a651c5ee2538baab8073f9e307f9c204b407037cbc.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e63227d57004fb0d2552d9c83402483e7aff50d16f096828aa71b916afc0ca7e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -38,6 +38,24 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "FlaskRepoo3C19B4145"
+          }
+        ],
+        "/SimplePipelineStack/SynthProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SynthProjectRole90E31009"
+          }
+        ],
+        "/SimplePipelineStack/SynthProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SynthProjectRoleDefaultPolicy9D5AECCA"
+          }
+        ],
+        "/SimplePipelineStack/SynthProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SynthProject50AA6AE7"
           }
         ],
         "/SimplePipelineStack/DockerBuildProjectt1/Role/Resource": [
@@ -67,7 +85,7 @@
               "Annotations.addWarningV2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:984)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/aws-codepipeline/lib/pipeline.js:1:11800)",
               "new Pipeline2 (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:681)",
-              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:83:22)",
+              "new PipelineStack (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/lib/pipeline-stack.ts:100:22)",
               "Object.<anonymous> (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/bin/cdk.ts:13:1)",
               "Module._compile (node:internal/modules/cjs/loader:1529:14)",
               "Module.m._compile (/home/alex/Documents/Projects/codepipeline_ecr/repo/cdk/node_modules/ts-node/src/index.ts:1618:23)",
@@ -141,6 +159,18 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "FlaskDockerPipelinee1SourceGitHubSourceCodePipelineActionRoleDefaultPolicyC0AC9035"
+          }
+        ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/SynthCDK/CDK_Synth/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1SynthCDKCDKSynthCodePipelineActionRoleC9BEF50E"
+          }
+        ],
+        "/SimplePipelineStack/FlaskDockerPipelinee1/SynthCDK/CDK_Synth/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FlaskDockerPipelinee1SynthCDKCDKSynthCodePipelineActionRoleDefaultPolicy7CE2F714"
           }
         ],
         "/SimplePipelineStack/FlaskDockerPipelinee1/Create_VPC/DeployNetworkStack/CodePipelineActionRole/Resource": [
