@@ -25,3 +25,6 @@ It looks like if network stack is changed cdk deploy need to be runned again
 There are diferences in cdk deploy --all vs cdk deploy --codepipelinesStack, correct way sould be only cdk deploy --codepipelinesStack or commit and push the info to triger the pipeline
 
 --there is a way to automate the cdk synth of the network stack inside codepipelineStack
+
+
+--Pipeline-stack does not automatically synth network stack when triggered, check buildspec: on the file, research about Cdk Synth process and files/commands involved

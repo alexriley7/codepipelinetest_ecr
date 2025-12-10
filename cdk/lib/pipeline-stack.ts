@@ -57,8 +57,8 @@ export class PipelineStack extends cdk.Stack {
               "ls -la",
               "npm run build",
               "echo Synthesizing CDK...",
-              "mkdir -p cdk.out",
-              "npx cdk synth NetworkStack --quiet > cdk.out/network-stack.template.json",
+              "mkdir -p ../cdk.out",
+              "npx cdk synth NetworkStack --quiet > ../cdk.out/network-stack.template.json",
               //"npx cdk synth NetworkStack --quiet > ../cdk.out/network-stack.template.json"
             ],
           },
