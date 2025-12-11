@@ -28,3 +28,8 @@ There are diferences in cdk deploy --all vs cdk deploy --codepipelinesStack, cor
 
 
 --Pipeline-stack does not automatically synth network stack when triggered, check buildspec: on the file, research about Cdk Synth process and files/commands involved
+
+
+--start new repo under this promt
+
+explain again and explain cdk deploy process with an example of creating app.py docker image
